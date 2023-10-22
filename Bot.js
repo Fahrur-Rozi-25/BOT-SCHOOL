@@ -32,23 +32,17 @@ module.exports = ivan = async (client, m, chatUpdate, store) => {
       switch (command) {
         case "help":
         case "menu":
-          m.reply(`*Whatsapp BOT*
+          m.reply(`*MAIN MENU*
             
-*(ChatGPT)*
-Cmd: /ai 
-Tanyakan apa saja kepada AI.
+*CEK HARI BESOK*
+Cmd: /@haribesok 
+mengecek semua jadwal untuk besok.
 
 *(Jadwal pelajaran)*
 Cmd: /jadwal hari ini.
 Tanyakan jadwal pelajarannya.
 
-*(DALL-E)*
-Cmd: /img
-Membuat gambar dari teks.
-
-*(Source Code Bot)*
-Cmd: /sc
-Menampilkan source code bot yang dipakai.`);
+`);
           break;
 
           case "@haribesok":
