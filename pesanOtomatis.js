@@ -46,7 +46,7 @@ const jadwal = async (day) => {
 const PR = async () => {
     const hari = hariBesok.toLowerCase()
     console.log(hari);
-    const url = `https://api-sekolah.arul251.repl.co/${hari}`
+    const url = `https://api-sekolah.arul251.repl.co/pr/${hari}`
     try {
         const response = await axios.get(url)
         const data = await response.data;
