@@ -13,7 +13,7 @@ const tanggal = `✨ Jangan Lupa Besok Hari *${tanggalBesok}* ✨`
 
 let baju
 if (hariBesok == "Senin" || hariBesok == "Selasa") {
-    baju = "*OSIM LENGKAP*\n Kaos Kaki : *PUTIH*"
+    baju = "*OSIM LENGKAP* \n Kaos Kaki : *PUTIH*"
 } else if (hariBesok == "Rabu") {
     baju = "*OLAHRAGA* , \n Jangan Lupa Bawa Baju Ganti *IDENTITAS* \n Kaos Kaki : *PUTIH*"
 } else if (hariBesok == "Kamis") {
@@ -46,7 +46,7 @@ const jadwal = async (day) => {
 const PR = async () => {
     const hari = hariBesok.toLowerCase()
     console.log(hari);
-    const url = `http://localhost:3000/pr/${hari}`
+    const url = `https://api-sekolah.arul251.repl.co/${hari}`
     try {
         const response = await axios.get(url)
         const data = await response.data;
@@ -73,17 +73,17 @@ const PR = async () => {
 }
 let jadwalPiket
 if (hariBesok == "Senin") {
-    jadwalPiket = "\n1.Agta Miski \n2.Fahrur Rozi \n3.Dian Safitri \n4.Dina Rihadatul \n5.f \n6.klalen "
+    jadwalPiket = "\n1.Agta Miski \n2.Fahrur Rozi \n3.Andelira Agami \n4.Dian Safitri \n5.Dina Rihadatul \n6.Diva Apriyani "
 } else if(hariBesok == "Selasa") {
-    jadwalPiket = "\n1. \n2. \n3. \n4. \n5. \n6."
+    jadwalPiket = "\n1.Difla Iqa \n2.EL Azhar \n3.Fatul Barri \n4.Griselda Rasita \n5.Hayyu Surya \n6.Hervi Nur"
 } else if(hariBesok == "Rabu") {
-    jadwalPiket = "\n1. \n2. \n3. \n4. \n5. \n6."
+    jadwalPiket = "\n1.Brilliant \n2.Indah Febri \n3.Listia Barokah \n4.Lita \n5.Lutfi \n6.Zahra"
 } else if(hariBesok == "Kamis") {
-    jadwalPiket = "\n1. \n2. \n3. \n4. \n5. \n6."
+    jadwalPiket = "\n1.Miftahud Dini \n2.M rafi Fauzy \n3.M Ayis \n4.Nabila BalQ \n5.Naufal Hamam \n6.Fatmatu"
 } else if(hariBesok == "Jumat") {
-    jadwalPiket = "\n1. \n2. \n3. \n4. \n5. \n6."
+    jadwalPiket = "\n1.Purwati \n2.Reva Sadiah \n3.Reva Wardani \n4.Salma Atun \n5.Salwa Ira(Multianah) \n6.Satria Abiy"
 } else if(hariBesok == "Sabtu") {
-    jadwalPiket = "\n1. \n2. \n3. \n4. \n5. \n6."
+    jadwalPiket = "\n1.SiFat \n2.Taqi Zain \n3.Triana kusuma \n4.Nurhalissa \n5.Vanda Veliana \n6.Yusup arif"
 }
 
 const Piket = `\n🧹🗑️ BESOK YANG PIKET HARI *${hariBesok}!* ${jadwalPiket} \n 📘 *Note!* \n Tidak Piket Maka denda Sebesar Rp.30.000.(taqi sing narik 😁👍)`
