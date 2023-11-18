@@ -48,6 +48,7 @@ Tanyakan jadwal pelajarannya.
           case "@haribesok":
             await kirimPesanOtomatis()
             break
+
         // case "jadwal":
         //   if (text === "" || text === "hari ini") {
         //     hariIni();
