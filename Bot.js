@@ -3,7 +3,8 @@ const fs = require("fs");
 const axios = require("axios");
 const chalk = require("chalk");
 const cron = require('node-cron');
-const kirimPesanOtomatis = require('./index')
+const bot = require('./index');
+// const alertMengisiPR = require("./index");
 
 const daysOfWeek = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
 
@@ -46,7 +47,10 @@ Tanyakan jadwal pelajarannya.
           break;
 
           case "@haribesok":
-            await kirimPesanOtomatis()
+            await bot.kirimPesanOtomatis()
+            break
+          case "@PR":
+            await bot.alertMengisiPR()
             break
 
         // case "jadwal":

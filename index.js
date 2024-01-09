@@ -22,6 +22,7 @@ const figlet = require("figlet");
 const _ = require("lodash");
 const PhoneNumber = require("awesome-phonenumber");
 const Pesan = require('./pesanOtomatis.js');
+const MengisiPR = require('./alertMengisiPR.js');
 
 const store = makeInMemoryStore({ logger: pino().child({ level: "silent", stream: "store" }) });
 
@@ -365,11 +366,13 @@ async function startVan() {
     return proto.WebMessageInfo.fromObject(copy);
   };
 
-  module.exports = kirimPesanOtomatis = async () => {
+  const ChatID = '120363191227450488@g.us'
+
+   const kirimPesanOtomatis = async () => {
     const message = await Pesan()
     message.toString()
     console.log("OK");
-    const targetChatID = '120363191227450488@g.us'; // Gantilah dengan chatID yang Anda inginkan
+    const targetChatID = ChatID; // Gantilah dengan chatID yang Anda inginkan
     const pesan = message;
     const quotedMessage = {}; // Anda dapat menambahkan pesan yang di-quote di sini
   
@@ -382,8 +385,33 @@ async function startVan() {
       });
   };
 
-  // cron.schedule('*/10 * * * * *', kirimPesanOtomatis);
+
+    const alertMengisiPR = async () => {
+    const message = await MengisiPR()
+    message.toString()
+    console.log("OK");
+    const targetChatID = ChatID; // Gantilah dengan chatID yang Anda inginkan
+    const pesan = message;
+    const quotedMessage = {}; // Anda dapat menambahkan pesan yang di-quote di sini
+  
+    client.sendMessage(targetChatID, { text: pesan, quoted: quotedMessage })
+      .then(() => {
+        console.log(`Pesan terkirim ke chat ID: ${targetChatID}`);
+      })
+      .catch((error) => {
+        console.error(`Gagal mengirim pesan: ${error}`);
+      });
+  };
+
+  // cron.schedule('* 16 * * *', alertMengisiPR);
   cron.schedule('0 19 * * *', kirimPesanOtomatis);
+
+  module.exports = {
+    kirimPesanOtomatis,
+    alertMengisiPR,
+  };
+
+  
   return client;
 
 }
@@ -400,4 +428,6 @@ fs.watchFile(file, () => {
   delete require.cache[file];
   require(file);
 });
+
+
 
